@@ -4,8 +4,11 @@ try:
 
     print("try")
     dosyaoku = open(dosyam, 'r')
-    oku = dosyaoku.read()
+    oku = dosyaoku.readlines()
     print(oku)
+    for i, satir in enumerate(oku):
+        if 'd\n' in satir:
+            print(i, satir)
     dosyaoku.close()
 
 except Exception as err:
@@ -13,9 +16,6 @@ except Exception as err:
 
     print("except")
     print(err)
-    if "Errno 3" in str(err) or "Errno 2" in str(err):
-        print("error 2 bulundu")
-    print('Dosya (' + dosyam + ') bulunamadı')
 
 finally:
     # hata olsa da olmasa da yani ne olursa olsun çalışır
